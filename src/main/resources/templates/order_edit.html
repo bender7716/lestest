@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order edit</title>
+
+</head>
+<body>
+
+<table>
+    <caption><h3>Order edit</h3></caption>
+    <tr>
+        <div>
+            <!--                <th>id</th>-->
+            <th>name_order</th>
+            <th>number_order</th>
+            <th>quadrature</th>
+            <th>Date Start</th>
+            <th>Date End</th>
+            <th>Color</th>
+        </div>
+    </tr>
+
+    <form action="#" th:action="@{/order}" th:object="${order}" method="post">
+        <tr>
+
+            <input type="hidden" th:field="*{id}"/>
+            <th><input type="text" th:field="*{nameOrder}" size=""/></th>
+            <th><input type="text" th:field="*{numberOrder}" size=""/></th>
+            <th><input type="text" th:field="*{quadrature}" size=""/></th>
+            <th><input type="date" th:field="*{startDate}" size=""/></th>
+            <th><input type="date" th:field="*{finishDate}" size=""/></th>
+            <th><input type="text" th:field="*{color}" size=""/></th>
+
+
+            <th><input type="submit" value="Save"/></th>
+            <th><input type="reset" value="Cancel"/></th>
+
+        </tr>
+    </form>
+
+</table>
+
+</body>
+</html>

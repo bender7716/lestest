@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cutters</title>
+    <link rel="stylesheet" th:href="@{./../static/css/style.css}">
+
+</head>
+<body>
+<div th:insert="~{header :: header}"></div>
+<div>
+    <a href="cutter/new">New cutter</a>
+    <h3>Cutters list</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <div th:fragment="cutter_thead_fragment">
+<!--                <th>id</th>-->
+                <th>name_cutter</th>
+            </div>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cutter : ${cutterList}">
+<!--            <td th:text="${cutter.getId()}"></td>-->
+            <td th:text="${cutter.getCutterName()}"></td>
+
+            <td><a th:href="@{/cutter/{id}(id=${cutter.getId()})}">Edit</a></td>
+            <td>
+                <form th:action="@{/cutter/{id}(id=${cutter.getId()})}" method="post">
+                    <input type="submit" value="Del"/>
+                </form>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
